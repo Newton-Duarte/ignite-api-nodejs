@@ -2,8 +2,11 @@ import { FastifyInstance } from 'fastify'
 import { knex } from '../database'
 import { z } from 'zod'
 import { randomUUID } from 'crypto'
+import { checkSessionIdExists } from '../middlewares/check-session-id-exists'
 
 export async function transactionsRoutes(app: FastifyInstance) {
+  app.addHook('preHandler', checkSessionIdExists)
+
   app.get('/', async () => {
     const transactions = await knex('transactions').select()
 
