@@ -202,9 +202,10 @@ $RECYCLE.BIN/
 *.lnk
 
 db.json
-db/app.db
-db/test.db
+db/*.db
 
 .env.test
+
+build
 
 # End of https://www.toptal.com/developers/gitignore/api/node,windows,linux,visualstudiocode
